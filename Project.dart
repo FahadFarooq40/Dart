@@ -1,89 +1,86 @@
 import 'dart:io';
 
-List<String> information = [];
+List Information = [];
 
 void main() {
-  print("======= WELCOME TO MY SCHOOLING SYSTEM =======");
-  var corrections = true;
-
-  while (corrections) {
+  print("======= WELLCOME TO MY SCHOOLING SYSTEM =======");
+  var Corections = true;
+  while (Corections) {
     print("01 : Enter Your Student Name");
-    // ... (rest of your menu options)
+    print("02 : Enter Your Student Father");
+    print("03 : Enter Your Student RollNUmber");
+    print("04 : Enter Your Class Number");
+    print("05 : Enter Your Student Check Details");
+    print("06 : Student Details Update");
+    print("07 : Student Details Delete");
+    print("08 : Exit");
 
     print("Enter Your Number And Press 1 to 8 Choice Number");
-    var inputDetails = stdin.readLineSync();
-
-    switch (inputDetails) {
-      case "1":
-        studentName();
-        break;
-      case "2":
-        studentFather();
-        break;
-      case "3":
-        studentRollNumber();
-        break;
-      case "4":
-        studentClassNumber();
-        break;
-      case "5":
-        studentCheckDetails();
-        break;
-      case "6":
-        studentDetailsUpdate();
-        break;
-      case "7":
-        studentCheckDetailsDelete();
-        break;
-      case "8":
-        print("Program Ending");
-        corrections = false;
-        break;
-      default:
-        print("Invalid choice. Please enter a number between 1 and 8.");
+    var InputDetails = stdin.readLineSync();
+    if (InputDetails == "1") {
+      StudentName();
+    } else if (InputDetails == "2") {
+      StudentFather();
+    } else if (InputDetails == "3") {
+      StudentRollNumber();
+    } else if (InputDetails == "4") {
+      StudentClassNumber();
+    } else if (InputDetails == "5") {
+      StudentCheckDetails();
+    } else if (InputDetails == "6") {
+      StudentDetailsUpdate();
+    } else if (InputDetails == "7") {
+      StudentCheckDetailsDelete();
+    } else if (InputDetails == "8") {
+      print("Program Ending");
+      Corections = false;
     }
   }
 }
 
-void studentName() {
+StudentName() {
   print("Enter the name of the student");
-  var name = stdin.readLineSync();
-  information.add(name);
-  print("Successfully entered the name of the student $name");
+  var studentName = stdin.readLineSync();
+  Information.add(studentName);
+  print("Successfully entered the name of the student $studentName");
 }
 
-// Similarly, define functions for studentFather, studentRollNumber, and studentClassNumber.
+StudentFather() {
+  print("Enter the FatherName of the student");
+  var studentFather = stdin.readLineSync();
+  Information.add(studentFather);
+  print("Successfully entered the name of the student $studentFather");
+}
 
-void studentCheckDetails() {
-  for (var i = 0; i < information.length; i++) {
-    print("$i : My ${information[i]}");
+StudentRollNumber() {
+  print("Enter the RollNumber of the student");
+  var studentRoll = stdin.readLineSync();
+  Information.add(studentRoll);
+  print("Successfully entered the name of the student $studentRoll");
+}
+
+StudentClassNumber() {
+  print("Enter the ClassNumber of the student");
+  var studentClass = stdin.readLineSync();
+  Information.add(studentClass);
+  print("Successfully entered the name of the student $studentClass");
+}
+
+StudentCheckDetails() {
+  for (var i = 0; i < Information.length; i++) {
+    print("$i : My ${Information[i]}");
     print("  =====   =====  ");
   }
 }
 
-void studentDetailsUpdate() {
-  print("Enter the index to update and the new value (e.g., '0 John'): ");
-  var input = stdin.readLineSync()?.split(' ');
-  if (input != null && input.length == 2) {
-    try {
-      var index = int.parse(input[0]);
-      information[index] = input[1];
-      print("Updated successfully!");
-    } catch (e) {
-      print("Invalid index. Please enter a valid index.");
-    }
-  } else {
-    print("Invalid input. Please enter both index and new value.");
-  }
+StudentDetailsUpdate() {
+  print("Enter the Update Details of the student");
+  var Update = stdin.readLineSync();
+  Information[0] = Update;
 }
 
-void studentCheckDetailsDelete() {
-  print("Enter the index to delete: ");
-  var index = int.tryParse(stdin.readLineSync() ?? '');
-  if (index != null && index >= 0 && index < information.length) {
-    information.removeAt(index);
-    print("Deleted successfully!");
-  } else {
-    print("Invalid index. Please enter a valid index.");
-  }
+StudentCheckDetailsDelete() {
+  print("Enter the Removes of the student");
+  var Delete = stdin.readLineSync();
+  Information.remove(Delete);
 }
